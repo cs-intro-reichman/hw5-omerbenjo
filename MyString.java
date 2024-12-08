@@ -77,7 +77,7 @@ public class MyString {
                 j++;
                 counter++;
                 sb.append(str1.charAt(i));
-                str1 = remove(sb.toString(), str1);
+                str1 = remove( str1,sb.toString());
                 sb.delete(0, sb.length());
                 i = 0;
 

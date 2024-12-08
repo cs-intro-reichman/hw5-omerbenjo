@@ -116,7 +116,8 @@ public class Scrabble {
             System.out.println("Current Hand: " + MyString.spacedString(hand));
             System.out.println("Enter a word, or '.' to finish playing this hand:");
             inputString = in.readString();
-            inputString = inputString.toLowerCase();
+
+			inputString = inputString.toLowerCase();
 
             if (inputString.equals("."))break;
             if (!isValidWord(hand, inputString)) continue;
@@ -131,7 +132,7 @@ public class Scrabble {
             }
             if (counter == inputString.length()) {
                 if (isWordInDictionary(inputString)) {
-                    hand = MyString.remove(inputString, hand);
+                    hand = MyString.remove( hand,inputString);
                     temScore = wordScore(inputString);
                     score += temScore;
                     System.out.println(inputString + " earned " + temScore + " points. Score: " + score+" points");
@@ -177,11 +178,11 @@ public class Scrabble {
 		////testBuildingTheDictionary();  
 		////testScrabbleScore();    
 		////testCreateHands();  
-		// // testPlayHands();
+		 testPlayHands();
 
     
 
-    playGame();
+    //playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -194,9 +195,9 @@ public class Scrabble {
     }
 
     public static void testScrabbleScore() {
-        System.out.println(wordScore("bee"));
-        System.out.println(wordScore("babe"));
-        System.out.println(wordScore("friendship"));
+        // System.out.println(wordScore("bee"));
+        // System.out.println(wordScore("babe"));
+        // System.out.println(wordScore("friendship"));
         System.out.println(wordScore("running"));
     }
 
@@ -210,6 +211,6 @@ public class Scrabble {
         init();
         //playHand("ocostrza");
         //  playHand("arbffip");
-        //playHand("aretiin");
+        playHand("aretiin");
     }
 }
