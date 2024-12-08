@@ -74,7 +74,7 @@ public class Scrabble {
 		if (word.length() == HAND_SIZE) {
             sum += 50;
         }
-		if (MyString.subsetOf(word, "runi")) {
+		if (MyString.subsetOf( "runi",word)) {
             sum += 1000;
         }
 
@@ -134,7 +134,7 @@ public class Scrabble {
                     hand = MyString.remove(inputString, hand);
                     temScore = wordScore(inputString);
                     score += temScore;
-                    System.out.println(inputString + " earned " + temScore + " points. Score: " + score);
+                    System.out.println(inputString + " earned " + temScore + " points. Score: " + score+" points");
                 } 
 				else if (temScore == 0)  System.out.println("No such word in the dictionary. Try again.");
             } 

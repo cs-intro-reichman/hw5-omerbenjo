@@ -1,3 +1,4 @@
+
 import java.util.Random;
 
 /**
@@ -37,7 +38,7 @@ public class MyString {
         if (str.isEmpty()) {
             return 0;
         }
-        for (int i = 0; i <= str.length()-1; i++) {
+        for (int i = 0; i <= str.length() - 1; i++) {
             if (str.charAt(i) == ch) {
                 counter++;
             }
@@ -60,66 +61,36 @@ public class MyString {
         // str2 = str2.replace(" ", "");
         if (str1.length() < str2.length()) {
             return false;
-        }
-        else if (str2.isEmpty()) {
+        } else if (str2.isEmpty()) {
             return true;
-        }
-        else if(str1.isEmpty()){
+        } else if (str1.isEmpty()) {
             return false;
         }
         // str1 = lowerCase(str1);
         // str2 = lowerCase(str2);
-        
+
         int j = 0;
-        int counter =0;
+        int counter = 0;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str1.length();) {
-                if (str1.charAt(i) == str2.charAt(j)) {
-                    j++;
-                    counter++;
-                    sb.append(str1.charAt(i));
-                    str1 = remove(sb.toString(),str1);
-                    sb.delete(0, sb.length());
-                    i = 0;
+            if (str1.charAt(i) == str2.charAt(j)) {
+                j++;
+                counter++;
+                sb.append(str1.charAt(i));
+                str1 = remove(sb.toString(), str1);
+                sb.delete(0, sb.length());
+                i = 0;
 
-                    if (counter == str2.length()) {
-                        return true;
-                    }
+                if (counter == str2.length()) {
+                    return true;
                 }
-                else i++;
+            } else {
+                i++;
+            }
 
         }
         return false;
     }
-
-
-    // public static boolean subsetOf(String str1, String str2) {
-    //     if (str1.length() > str2.length()) {
-    //         return false;
-    //     } else if (str1.isEmpty()) {
-    //         return true;
-    //     } else if (str2.isEmpty()) {
-    //         return false;
-    //     }
-    //     // str1 = lowerCase(str1);
-    //     // str2 = lowerCase(str2);
-
-    //     int j = 0;
-    //     int counter = 0;
-    //     for (int i = 0; i < str2.length(); i++) {
-    //         if (str1.charAt(i) == str2.charAt(j)) {
-    //             j++;
-    //             counter++;
-    //             if (counter == str1.length()) {
-    //                 return true;
-    //             }
-    //         } else {
-
-    //             counter = 0;
-    //         }
-    //     }
-    //     return false;
-    // }
 
     /**
      * Returns a string which is the same as the given string, with a space
@@ -139,6 +110,7 @@ public class MyString {
             sb.append(str.charAt(i));
             sb.append(" ");
         }
+        sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
     }
 
@@ -173,23 +145,23 @@ public class MyString {
      * @param str2 - a string
      * @return a string consisting of str1 minus all the characters of str2
      */
-    
-
-    
     public static String remove(String str1, String str2) {
         if (str1.isEmpty()) {
-            return str2;
+            return str1;
         }
-        for (int i = 0; i < str1.length(); i++) {
-            for (int j = 0; j < str2.length(); j++){
-                if(str1.charAt(i) == str2.charAt(j)){
-                   str2 = str2.substring(0, j) + str2.substring(j + 1);
-                   break;
-
+        if (str2.isEmpty()) {
+            return str1;
+        }
+        for (int j = 0; j < str2.length(); j++) {
+            for (int i = 0; i < str1.length(); i++) {
+                if (str1.charAt(i) == str2.charAt(j)) {
+                    str1 = str1.substring(0, i) + str1.substring(i + 1);
+                    i--;
+                    break;
                 }
             }
         }
-        return str2;
+        return str1;
     }
 
     /**
