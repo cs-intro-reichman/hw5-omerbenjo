@@ -100,7 +100,7 @@ public class Scrabble {
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	private  static boolean isValidWord(String hand,String inputString){
 		if (inputString.length() > hand.length()) {
-			System.out.println("Invalid word. Try again.\r");
+			System.out.println("Invalid word. Try again.");
 			return false;
 		}
 		else if (inputString.isEmpty()) return false;
@@ -135,11 +135,11 @@ public class Scrabble {
                     hand = MyString.remove( hand,inputString);
                     temScore = wordScore(inputString);
                     score += temScore;
-                    System.out.println(inputString + " earned " + temScore + " points. Score: " + score+" points");
+                    System.out.println(inputString + " earned " + temScore + " points. Score: " + score+" points"+"\n");
                 } 
 				else if (temScore == 0)  System.out.println("No such word in the dictionary. Try again.");
             } 
-			else System.out.println("Invalid word. Try again.\r");
+			else System.out.println("Invalid word. Try again.");
             temScore = 0;
             counter = 0;
 		}
